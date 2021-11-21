@@ -26,7 +26,6 @@ export default function MainModel(props) {
   const [showHtml, setShowHtml] = useState(false);
 
   const [isHovered, setIsHovered] = useState(false);
-
   const [isHovered1, setIsHovered1] = useState(false);
   const [isHovered2, setIsHovered2] = useState(false);
   const [isHovered3, setIsHovered3] = useState(false);
@@ -75,7 +74,7 @@ export default function MainModel(props) {
   const onHover = useCallback(
     (e, value) => {
       e.stopPropagation();
-      setIsHovered1(value);
+      setIsHovered(value);
     },
     [setIsHovered],
   );

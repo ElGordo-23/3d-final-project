@@ -45,8 +45,6 @@ export default function RegisterPage(props: Props) {
               ? router.query.returnTo
               : `/`;
 
-          // props.refreshUsername();
-
           router.push(destination);
         }}
       >
