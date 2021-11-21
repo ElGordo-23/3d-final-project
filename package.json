@@ -5,7 +5,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "migrate": "dotenv ley"
   },
   "dependencies": {
     "@emotion/babel-plugin": "^11.3.0",
@@ -41,7 +42,7 @@
     "@babel/eslint-parser": "^7.15.8",
     "@next/eslint-plugin-next": "^11.1.2",
     "@types/node": "^16.11.6",
-    "@types/react": "^17.0.33",
+    "@types/react": "^17.0.35",
     "@types/react-dom": "^17.0.10",
     "@typescript-eslint/eslint-plugin": "^5.2.0",
     "@typescript-eslint/parser": "^5.2.0",
@@ -60,7 +61,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-testing-library": "^5.0.0",
     "eslint-plugin-unicorn": "^37.0.1",
-    "typescript": "^4.4.4"
+    "typescript": "^4.5.2"
   },
   "resolutions": {
     "eslint-plugin-react": "7.26.1",
