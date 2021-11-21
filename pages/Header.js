@@ -1,6 +1,6 @@
 import { css } from '@emotion/react';
 import { useState } from 'react';
-import LoginPage from '../pages/login';
+import LoginPage from './login';
 
 export const navWrapper = css`
   display: flex;

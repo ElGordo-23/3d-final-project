@@ -1,8 +1,8 @@
 import { GetServerSidePropsContext } from 'next';
 import { useRouter } from 'next/dist/client/router';
 import { useState } from 'react';
+import { RegisterResponse } from '../pages/api/register';
 import { Errors } from '../util/types';
-import { RegisterResponse } from './api/register';
 
 type Props = { csrfToken: string };
 

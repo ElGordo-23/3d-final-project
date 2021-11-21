@@ -7,7 +7,7 @@ import {
   useProgress,
 } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
-import React, { Suspense, useCallback, useState } from 'react';
+import React, { Suspense, useCallback, useEffect, useState } from 'react';
 import Header from '../Components/Header';
 import MainModel from '../Components/MainModel';
 
@@ -28,6 +28,18 @@ const wrapperMain = css`
   box-sizing: border-box;
   margin: 0;
   display: flex;
+  .Controls {
+    text-align: center;
+    font-family: 'Oswald';
+    height: 50px;
+    width: 50px;
+    background-color: black;
+    color: white;
+    font-size: 30px;
+    top: 50px;
+    margin-left: 40px;
+    margin-top: 40px;
+  }
 `;
 
 export default function Scene() {
@@ -42,7 +54,10 @@ export default function Scene() {
     [controls, setControls],
   );
 
-  // document.addEventListener('keydown', keyPress);
+  useEffect(() => {
+    document.addEventListener('keydown', keyPress);
+    return () => document.removeEventListener('keydown', keyPress);
+  }, [keyPress]);
 
   return (
     <div css={wrapperMain}>
@@ -83,6 +98,13 @@ export default function Scene() {
         </Canvas>
       </div>
       <Header />
+      {controls ? (
+        <div className="Controls">
+          <div>O</div>
+        </div>
+      ) : (
+        <div className="Controls">F</div>
+      )}
     </div>
   );
 }
