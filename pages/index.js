@@ -7,7 +7,13 @@ import {
   useProgress,
 } from '@react-three/drei';
 import { Canvas } from '@react-three/fiber';
-import React, { Suspense, useCallback, useEffect, useState } from 'react';
+import React, {
+  createContext,
+  Suspense,
+  useCallback,
+  useEffect,
+  useState,
+} from 'react';
 import Header from '../Components/Header';
 import MainModel from '../Components/MainModel';
 
@@ -40,9 +46,17 @@ const wrapperMain = css`
     margin-left: 40px;
     margin-top: 40px;
   }
+  .Textures {
+    position: fixed;
+    top: 100px;
+  }
 `;
 
+export const TextureContext = createContext();
+
 export default function Scene() {
+  const [textureSelector, setTextureSelector] = useState('texture1');
+
   const [controls, setControls] = useState(true);
 
   const keyPress = useCallback(
@@ -81,23 +95,27 @@ export default function Scene() {
               />
             )}
 
-            <MainModel />
+            <TextureContext.Provider value={textureSelector}>
+              <MainModel />
+            </TextureContext.Provider>
 
             <Environment files="studio.hdr" />
-
-            <Html position={[200, 0, 200]}>
-              {/* <button
-                onClick={() => {
-                  setControls(!controls);
-                }}
-              >
-                Switch Controls
-              </button> */}
-            </Html>
           </Suspense>
         </Canvas>
       </div>
       <Header />
+      <select
+        className="Textures"
+        onChange={(e) => {
+          setTextureSelector(e.currentTarget.value);
+        }}
+      >
+        <option value="texture1">1</option>
+        <option value="texture2">2</option>
+        <option value="texture3">3</option>
+        <option value="texture4">4</option>
+        <option value="texture5">5</option>
+      </select>
       {controls ? (
         <div className="Controls">
           <div>O</div>

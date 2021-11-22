@@ -1,8 +1,9 @@
 import { css } from '@emotion/react';
-import { Billboard, Html, Plane, Text, useGLTF } from '@react-three/drei';
+import { Html, useGLTF } from '@react-three/drei';
 import { useLoader } from '@react-three/fiber';
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useContext, useRef, useState } from 'react';
 import { TextureLoader } from 'three';
+import { TextureContext } from '../pages/index';
 import Model2 from './Model2';
 
 const divStyle = css`
@@ -17,11 +18,11 @@ const divStyle = css`
 
 export default function MainModel(props) {
   const group = useRef();
+
+  const texture = useContext(TextureContext);
+
   const { nodes, materials } = useGLTF('/1-baked.gltf');
-  const colorMap = useLoader(
-    TextureLoader,
-    '20190314_Sattelite Images from Google Earth Colour-09.jpg',
-  );
+  const colorMap = useLoader(TextureLoader, `/textures/${texture}.jpg`);
 
   const [showHtml, setShowHtml] = useState(false);
 
@@ -262,7 +263,9 @@ export default function MainModel(props) {
         position={[0.41, 0.01, 1.86]}
         rotation={[Math.PI, 0, Math.PI]}
         scale={[0.5, 0.5, 0.5]}
-      />
+      >
+        <meshStandardMaterial map={colorMap} />
+      </mesh>
       <mesh
         onPointerOver={(e) => onHover2(e, true)}
         onPointerOut={(e) => onHover2(e, false)}
@@ -277,7 +280,9 @@ export default function MainModel(props) {
         position={[0.41, 0.01, 1.86]}
         rotation={[Math.PI, 0, Math.PI]}
         scale={[0.5, 0.5, 0.5]}
-      />
+      >
+        <meshStandardMaterial map={colorMap} />
+      </mesh>
       <mesh
         material-color={color3}
         onPointerOver={(e) => onHover3(e, true)}
@@ -289,7 +294,9 @@ export default function MainModel(props) {
         position={[0.41, 0.01, 1.86]}
         rotation={[Math.PI, 0, Math.PI]}
         scale={[0.5, 0.5, 0.5]}
-      />
+      >
+        <meshStandardMaterial map={colorMap} />
+      </mesh>
       <mesh
         material-color={color4}
         onPointerOver={(e) => onHover4(e, true)}
@@ -301,7 +308,9 @@ export default function MainModel(props) {
         position={[0.41, 0.01, 1.86]}
         rotation={[Math.PI, 0, Math.PI]}
         scale={[0.5, 0.5, 0.5]}
-      />
+      >
+        <meshStandardMaterial map={colorMap} />
+      </mesh>
       <mesh
         material-color={color5}
         onPointerOver={(e) => onHover5(e, true)}
@@ -313,7 +322,9 @@ export default function MainModel(props) {
         position={[0.41, 0.01, 1.86]}
         rotation={[Math.PI, 0, Math.PI]}
         scale={[0.5, 0.5, 0.5]}
-      />
+      >
+        <meshStandardMaterial map={colorMap} />
+      </mesh>
       <mesh
         material-color={color6}
         onPointerOver={(e) => onHover6(e, true)}
@@ -325,7 +336,9 @@ export default function MainModel(props) {
         position={[0.41, 0.01, 1.86]}
         rotation={[Math.PI, 0, Math.PI]}
         scale={[0.5, 0.5, 0.5]}
-      />
+      >
+        <meshStandardMaterial map={colorMap} />
+      </mesh>
       <mesh
         material-color={color7}
         onPointerOver={(e) => onHover7(e, true)}
@@ -337,7 +350,9 @@ export default function MainModel(props) {
         position={[0.41, 0.01, 1.86]}
         rotation={[Math.PI, 0, Math.PI]}
         scale={[0.5, 0.5, 0.5]}
-      />
+      >
+        <meshStandardMaterial map={colorMap} />
+      </mesh>
       <mesh
         material-color={color8}
         onPointerOver={(e) => onHover8(e, true)}
@@ -349,7 +364,9 @@ export default function MainModel(props) {
         position={[0.41, 0.01, 1.86]}
         rotation={[Math.PI, 0, Math.PI]}
         scale={[0.5, 0.5, 0.5]}
-      />
+      >
+        <meshStandardMaterial map={colorMap} />
+      </mesh>
       <mesh
         material-color={color9}
         onPointerOver={(e) => onHover9(e, true)}
@@ -361,7 +378,9 @@ export default function MainModel(props) {
         position={[0.41, 0.01, 1.86]}
         rotation={[Math.PI, 0, Math.PI]}
         scale={[0.5, 0.5, 0.5]}
-      />
+      >
+        <meshStandardMaterial map={colorMap} />
+      </mesh>
       <mesh
         material-color={color10}
         onPointerOver={(e) => onHover10(e, true)}
@@ -373,7 +392,9 @@ export default function MainModel(props) {
         position={[0.41, 0.01, 1.86]}
         rotation={[Math.PI, 0, Math.PI]}
         scale={[0.5, 0.5, 0.5]}
-      />
+      >
+        <meshStandardMaterial map={colorMap} />
+      </mesh>
       <mesh
         material-color={color11}
         onPointerOver={(e) => onHover11(e, true)}
@@ -385,7 +406,9 @@ export default function MainModel(props) {
         position={[0.41, 0.01, 1.86]}
         rotation={[Math.PI, 0, Math.PI]}
         scale={[0.5, 0.5, 0.5]}
-      />
+      >
+        <meshStandardMaterial map={colorMap} />
+      </mesh>
       <mesh
         material-color={color12}
         onPointerOver={(e) => onHover12(e, true)}
@@ -397,7 +420,9 @@ export default function MainModel(props) {
         position={[0.41, 0.01, 1.86]}
         rotation={[Math.PI, 0, Math.PI]}
         scale={[0.5, 0.5, 0.5]}
-      />
+      >
+        <meshStandardMaterial map={colorMap} />
+      </mesh>
       <mesh
         material-color={color13}
         onPointerOver={(e) => onHover13(e, true)}
@@ -409,7 +434,9 @@ export default function MainModel(props) {
         position={[0.41, 0.01, 1.86]}
         rotation={[Math.PI, 0, Math.PI]}
         scale={[0.5, 0.5, 0.5]}
-      />
+      >
+        <meshStandardMaterial map={colorMap} />
+      </mesh>
       <mesh
         material-color={color14}
         onPointerOver={(e) => onHover14(e, true)}
@@ -421,7 +448,9 @@ export default function MainModel(props) {
         position={[0.41, 0.01, 1.86]}
         rotation={[Math.PI, 0, Math.PI]}
         scale={[0.5, 0.5, 0.5]}
-      />
+      >
+        <meshStandardMaterial map={colorMap} />
+      </mesh>
       <mesh
         material-color={color15}
         onPointerOver={(e) => onHover15(e, true)}
@@ -433,7 +462,9 @@ export default function MainModel(props) {
         position={[0.41, 0.01, 1.86]}
         rotation={[Math.PI, 0, Math.PI]}
         scale={[0.5, 0.5, 0.5]}
-      />
+      >
+        <meshStandardMaterial map={colorMap} />
+      </mesh>
       <mesh
         material-color={color16}
         onPointerOver={(e) => onHover16(e, true)}
@@ -445,7 +476,9 @@ export default function MainModel(props) {
         position={[0.41, 0.01, 1.86]}
         rotation={[Math.PI, 0, Math.PI]}
         scale={[0.5, 0.5, 0.5]}
-      />
+      >
+        <meshStandardMaterial map={colorMap} />
+      </mesh>
       <mesh
         material-color={color17}
         onPointerOver={(e) => onHover17(e, true)}
@@ -457,7 +490,9 @@ export default function MainModel(props) {
         position={[0.41, 0.01, 1.86]}
         rotation={[Math.PI, 0, Math.PI]}
         scale={[0.5, 0.5, 0.5]}
-      />
+      >
+        <meshStandardMaterial map={colorMap} />
+      </mesh>
       <mesh
         material-color={color18}
         onPointerOver={(e) => onHover18(e, true)}
@@ -469,7 +504,9 @@ export default function MainModel(props) {
         position={[0.41, 0.01, 1.86]}
         rotation={[Math.PI, 0, Math.PI]}
         scale={[0.5, 0.5, 0.5]}
-      />
+      >
+        <meshStandardMaterial map={colorMap} />
+      </mesh>
       <mesh
         material-color={color19}
         onPointerOver={(e) => onHover19(e, true)}
@@ -481,7 +518,9 @@ export default function MainModel(props) {
         position={[0.41, 0.01, 1.86]}
         rotation={[Math.PI, 0, Math.PI]}
         scale={[0.5, 0.5, 0.5]}
-      />
+      >
+        <meshStandardMaterial map={colorMap} />
+      </mesh>
       <mesh
         material-color={color20}
         onPointerOver={(e) => onHover20(e, true)}
@@ -493,7 +532,9 @@ export default function MainModel(props) {
         position={[0.41, 0.01, 1.86]}
         rotation={[Math.PI, 0, Math.PI]}
         scale={[0.5, 0.5, 0.5]}
-      />
+      >
+        <meshStandardMaterial map={colorMap} />
+      </mesh>
       <mesh
         material-color={color21}
         onPointerOver={(e) => onHover21(e, true)}
@@ -505,7 +546,9 @@ export default function MainModel(props) {
         position={[0.41, 0.01, 1.86]}
         rotation={[Math.PI, 0, Math.PI]}
         scale={[0.5, 0.5, 0.5]}
-      />
+      >
+        <meshStandardMaterial map={colorMap} />
+      </mesh>
       {showHtml ? (
         <>
           <Html position={[230, 200, 200]} follow={true}>
@@ -516,8 +559,7 @@ export default function MainModel(props) {
           <Model2
             scale={[0.5, 0.5, 0.5]}
             position={[200, 200, 200]}
-            rotation-x={Math.PI * 0.25}
-            rotation={[Math.PI / 2, 0, 0]}
+            autoRotate
           />
         </>
       ) : null}
