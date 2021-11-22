@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import LoginPage from '../pages/login';
 import RegisterPage from '../pages/register';
 
@@ -79,6 +79,34 @@ export default function Header() {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showRegisterModal, setShowRegisterModal] = useState(false);
 
+  const modalRef = useRef();
+
+  const closeModal = (e) => {
+    if (modalRef.current === e.target) {
+      setShowInstrModal(false);
+    }
+  };
+  const closeModal2 = (e) => {
+    if (modalRef.current === e.target) {
+      setShowControlsModal(false);
+    }
+  };
+  const closeModal3 = (e) => {
+    if (modalRef.current === e.target) {
+      setShowAboutModal(false);
+    }
+  };
+  const closeModal4 = (e) => {
+    if (modalRef.current === e.target) {
+      setShowLoginModal(false);
+    }
+  };
+  const closeModal5 = (e) => {
+    if (modalRef.current === e.target) {
+      setShowRegisterModal(false);
+    }
+  };
+
   return (
     <>
       <div css={navWrapper}>
@@ -129,7 +157,12 @@ export default function Header() {
       </div>
 
       {showInstrModal ? (
-        <div css={modalBackground}>
+        <div
+          css={modalBackground}
+          ref={modalRef}
+          onClick={closeModal}
+          aria-hidden="true"
+        >
           <div css={modalWrapper}>
             <div css={modalContent}>
               <div>Hola Muchachos</div>
@@ -150,7 +183,12 @@ export default function Header() {
       ) : null}
 
       {showControlsModal ? (
-        <div css={modalBackground}>
+        <div
+          css={modalBackground}
+          ref={modalRef}
+          onClick={closeModal2}
+          aria-hidden="true"
+        >
           <div css={modalWrapper}>
             <div css={modalContent}>
               <div>Hola Muchachos</div>
@@ -171,7 +209,12 @@ export default function Header() {
       ) : null}
 
       {showAboutModal ? (
-        <div css={modalBackground}>
+        <div
+          css={modalBackground}
+          ref={modalRef}
+          onClick={closeModal3}
+          aria-hidden="true"
+        >
           <div css={modalWrapper}>
             <div css={modalContent}>
               <div>Hola Muchachos</div>
@@ -192,10 +235,16 @@ export default function Header() {
       ) : null}
 
       {showLoginModal ? (
-        <div css={modalBackground}>
+        <div
+          css={modalBackground}
+          ref={modalRef}
+          onClick={closeModal4}
+          aria-hidden="true"
+        >
           <div css={modalWrapper}>
             <div css={modalContent}>
               <LoginPage />
+
               <button onClick={() => setShowLoginModal(!showLoginModal)}>
                 Close
               </button>
@@ -205,10 +254,18 @@ export default function Header() {
       ) : null}
 
       {showRegisterModal ? (
-        <div css={modalBackground}>
+        <div
+          css={modalBackground}
+          ref={modalRef}
+          onClick={closeModal5}
+          aria-hidden="true"
+        >
           <div css={modalWrapper}>
             <div css={modalContent}>
+              <div>Hola Muchachos</div>
+              <br />
               <RegisterPage />
+              <br />
               <button onClick={() => setShowRegisterModal(!showRegisterModal)}>
                 Close
               </button>
