@@ -4,6 +4,7 @@ import { useLoader } from '@react-three/fiber';
 import React, { useCallback, useContext, useRef, useState } from 'react';
 import { TextureLoader } from 'three';
 import { TextureContext } from '../pages/index';
+import FlyingModal2 from './FlyingModal2';
 import Model2 from './Model2';
 
 const divStyle = css`
@@ -25,6 +26,7 @@ export default function MainModel(props) {
   const colorMap = useLoader(TextureLoader, `/textures/${texture}.jpg`);
 
   const [showHtml, setShowHtml] = useState(false);
+  const [showHtml1, setShowHtml1] = useState(false);
 
   const [isHovered, setIsHovered] = useState(false);
   const [isHovered1, setIsHovered1] = useState(false);
@@ -230,340 +232,342 @@ export default function MainModel(props) {
   );
 
   return (
-    <group
-      ref={group}
-      {...props}
-      dispose={null}
-      onClick={(e) => {
-        e.stopPropagation();
-      }}
-    >
-      <mesh
-        material-color={color}
-        onPointerOver={(e) => onHover(e, true)}
-        onPointerOut={(e) => onHover(e, false)}
-        castShadow
-        receiveShadow
-        geometry={nodes['2'].geometry}
-        material={materials['2.21']}
-        position={[0.41, 0.01, 1.86]}
-        rotation={[Math.PI, 0, Math.PI]}
-        scale={[0.5, 0.5, 0.5]}
-      >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
-      <mesh
-        material-color={color1}
-        onPointerOver={(e) => onHover1(e, true)}
-        onPointerOut={(e) => onHover1(e, false)}
-        castShadow
-        receiveShadow
-        geometry={nodes['2_1'].geometry}
-        material={materials['2.20']}
-        position={[0.41, 0.01, 1.86]}
-        rotation={[Math.PI, 0, Math.PI]}
-        scale={[0.5, 0.5, 0.5]}
-      >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
-      <mesh
-        onPointerOver={(e) => onHover2(e, true)}
-        onPointerOut={(e) => onHover2(e, false)}
-        onClick={() => {
-          setShowHtml(!showHtml);
-        }}
-        material-color={color2}
-        castShadow
-        receiveShadow
-        geometry={nodes['2_2'].geometry}
-        material={materials['2.19']}
-        position={[0.41, 0.01, 1.86]}
-        rotation={[Math.PI, 0, Math.PI]}
-        scale={[0.5, 0.5, 0.5]}
-      >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
-      <mesh
-        material-color={color3}
-        onPointerOver={(e) => onHover3(e, true)}
-        onPointerOut={(e) => onHover3(e, false)}
-        castShadow
-        receiveShadow
-        geometry={nodes['2_3'].geometry}
-        material={materials['2.18']}
-        position={[0.41, 0.01, 1.86]}
-        rotation={[Math.PI, 0, Math.PI]}
-        scale={[0.5, 0.5, 0.5]}
-      >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
-      <mesh
-        material-color={color4}
-        onPointerOver={(e) => onHover4(e, true)}
-        onPointerOut={(e) => onHover4(e, false)}
-        castShadow
-        receiveShadow
-        geometry={nodes['2_4'].geometry}
-        material={materials['2.17']}
-        position={[0.41, 0.01, 1.86]}
-        rotation={[Math.PI, 0, Math.PI]}
-        scale={[0.5, 0.5, 0.5]}
-      >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
-      <mesh
-        material-color={color5}
-        onPointerOver={(e) => onHover5(e, true)}
-        onPointerOut={(e) => onHover5(e, false)}
-        castShadow
-        receiveShadow
-        geometry={nodes['2_5'].geometry}
-        material={materials['2.16']}
-        position={[0.41, 0.01, 1.86]}
-        rotation={[Math.PI, 0, Math.PI]}
-        scale={[0.5, 0.5, 0.5]}
-      >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
-      <mesh
-        material-color={color6}
-        onPointerOver={(e) => onHover6(e, true)}
-        onPointerOut={(e) => onHover6(e, false)}
-        castShadow
-        receiveShadow
-        geometry={nodes['2_6'].geometry}
-        material={materials['2.15']}
-        position={[0.41, 0.01, 1.86]}
-        rotation={[Math.PI, 0, Math.PI]}
-        scale={[0.5, 0.5, 0.5]}
-      >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
-      <mesh
-        material-color={color7}
-        onPointerOver={(e) => onHover7(e, true)}
-        onPointerOut={(e) => onHover7(e, false)}
-        castShadow
-        receiveShadow
-        geometry={nodes['2_7'].geometry}
-        material={materials['2.14']}
-        position={[0.41, 0.01, 1.86]}
-        rotation={[Math.PI, 0, Math.PI]}
-        scale={[0.5, 0.5, 0.5]}
-      >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
-      <mesh
-        material-color={color8}
-        onPointerOver={(e) => onHover8(e, true)}
-        onPointerOut={(e) => onHover8(e, false)}
-        castShadow
-        receiveShadow
-        geometry={nodes['2_8'].geometry}
-        material={materials['2.13']}
-        position={[0.41, 0.01, 1.86]}
-        rotation={[Math.PI, 0, Math.PI]}
-        scale={[0.5, 0.5, 0.5]}
-      >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
-      <mesh
-        material-color={color9}
-        onPointerOver={(e) => onHover9(e, true)}
-        onPointerOut={(e) => onHover9(e, false)}
-        castShadow
-        receiveShadow
-        geometry={nodes['2_9'].geometry}
-        material={materials['2.12']}
-        position={[0.41, 0.01, 1.86]}
-        rotation={[Math.PI, 0, Math.PI]}
-        scale={[0.5, 0.5, 0.5]}
-      >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
-      <mesh
-        material-color={color10}
-        onPointerOver={(e) => onHover10(e, true)}
-        onPointerOut={(e) => onHover10(e, false)}
-        castShadow
-        receiveShadow
-        geometry={nodes['2_10'].geometry}
-        material={materials['2.11']}
-        position={[0.41, 0.01, 1.86]}
-        rotation={[Math.PI, 0, Math.PI]}
-        scale={[0.5, 0.5, 0.5]}
-      >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
-      <mesh
-        material-color={color11}
-        onPointerOver={(e) => onHover11(e, true)}
-        onPointerOut={(e) => onHover11(e, false)}
-        castShadow
-        receiveShadow
-        geometry={nodes['2_11'].geometry}
-        material={materials['2.10']}
-        position={[0.41, 0.01, 1.86]}
-        rotation={[Math.PI, 0, Math.PI]}
-        scale={[0.5, 0.5, 0.5]}
-      >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
-      <mesh
-        material-color={color12}
-        onPointerOver={(e) => onHover12(e, true)}
-        onPointerOut={(e) => onHover12(e, false)}
-        castShadow
-        receiveShadow
-        geometry={nodes['2_12'].geometry}
-        material={materials['2.9']}
-        position={[0.41, 0.01, 1.86]}
-        rotation={[Math.PI, 0, Math.PI]}
-        scale={[0.5, 0.5, 0.5]}
-      >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
-      <mesh
-        material-color={color13}
-        onPointerOver={(e) => onHover13(e, true)}
-        onPointerOut={(e) => onHover13(e, false)}
-        castShadow
-        receiveShadow
-        geometry={nodes['2_13'].geometry}
-        material={materials['2.8']}
-        position={[0.41, 0.01, 1.86]}
-        rotation={[Math.PI, 0, Math.PI]}
-        scale={[0.5, 0.5, 0.5]}
-      >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
-      <mesh
-        material-color={color14}
-        onPointerOver={(e) => onHover14(e, true)}
-        onPointerOut={(e) => onHover14(e, false)}
-        castShadow
-        receiveShadow
-        geometry={nodes['2_14'].geometry}
-        material={materials['2.7']}
-        position={[0.41, 0.01, 1.86]}
-        rotation={[Math.PI, 0, Math.PI]}
-        scale={[0.5, 0.5, 0.5]}
-      >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
-      <mesh
-        material-color={color15}
-        onPointerOver={(e) => onHover15(e, true)}
-        onPointerOut={(e) => onHover15(e, false)}
-        castShadow
-        receiveShadow
-        geometry={nodes['2_15'].geometry}
-        material={materials['2.6']}
-        position={[0.41, 0.01, 1.86]}
-        rotation={[Math.PI, 0, Math.PI]}
-        scale={[0.5, 0.5, 0.5]}
-      >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
-      <mesh
-        material-color={color16}
-        onPointerOver={(e) => onHover16(e, true)}
-        onPointerOut={(e) => onHover16(e, false)}
-        castShadow
-        receiveShadow
-        geometry={nodes['2_16'].geometry}
-        material={materials['2.5']}
-        position={[0.41, 0.01, 1.86]}
-        rotation={[Math.PI, 0, Math.PI]}
-        scale={[0.5, 0.5, 0.5]}
-      >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
-      <mesh
-        material-color={color17}
-        onPointerOver={(e) => onHover17(e, true)}
-        onPointerOut={(e) => onHover17(e, false)}
-        castShadow
-        receiveShadow
-        geometry={nodes['2_17'].geometry}
-        material={materials['2.4']}
-        position={[0.41, 0.01, 1.86]}
-        rotation={[Math.PI, 0, Math.PI]}
-        scale={[0.5, 0.5, 0.5]}
-      >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
-      <mesh
-        material-color={color18}
-        onPointerOver={(e) => onHover18(e, true)}
-        onPointerOut={(e) => onHover18(e, false)}
-        castShadow
-        receiveShadow
-        geometry={nodes['2_18'].geometry}
-        material={materials['2.3']}
-        position={[0.41, 0.01, 1.86]}
-        rotation={[Math.PI, 0, Math.PI]}
-        scale={[0.5, 0.5, 0.5]}
-      >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
-      <mesh
-        material-color={color19}
-        onPointerOver={(e) => onHover19(e, true)}
-        onPointerOut={(e) => onHover19(e, false)}
-        castShadow
-        receiveShadow
-        geometry={nodes['2_19'].geometry}
-        material={materials['2.2']}
-        position={[0.41, 0.01, 1.86]}
-        rotation={[Math.PI, 0, Math.PI]}
-        scale={[0.5, 0.5, 0.5]}
-      >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
-      <mesh
-        material-color={color20}
-        onPointerOver={(e) => onHover20(e, true)}
-        onPointerOut={(e) => onHover20(e, false)}
-        castShadow
-        receiveShadow
-        geometry={nodes['2_20'].geometry}
-        material={materials['2.1']}
-        position={[0.41, 0.01, 1.86]}
-        rotation={[Math.PI, 0, Math.PI]}
-        scale={[0.5, 0.5, 0.5]}
-      >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
-      <mesh
-        material-color={color21}
-        onPointerOver={(e) => onHover21(e, true)}
-        onPointerOut={(e) => onHover21(e, false)}
-        castShadow
-        receiveShadow
-        geometry={nodes['2_21'].geometry}
-        material={materials['2']}
-        position={[0.41, 0.01, 1.86]}
-        rotation={[Math.PI, 0, Math.PI]}
-        scale={[0.5, 0.5, 0.5]}
-      >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
+    <>
       {showHtml ? (
-        <>
-          <Html position={[230, 200, 200]} follow={true}>
-            <div css={divStyle} position={[60, 80, 60]}>
-              Hola
-            </div>
-          </Html>
-          <Model2
-            scale={[0.5, 0.5, 0.5]}
-            position={[200, 200, 200]}
-            autoRotate
-          />
-        </>
+        <Html>
+          <FlyingModal2 />
+        </Html>
       ) : null}
-    </group>
+      {showHtml1 ? (
+        <Html>
+          <FlyingModal2 />
+        </Html>
+      ) : null}
+
+      <group
+        ref={group}
+        {...props}
+        dispose={null}
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+      >
+        <mesh
+          material-color={color}
+          onPointerOver={(e) => onHover(e, true)}
+          onPointerOut={(e) => onHover(e, false)}
+          onClick={() => {
+            setShowHtml1(!showHtml1);
+          }}
+          castShadow
+          receiveShadow
+          geometry={nodes['2'].geometry}
+          material={materials['2.21']}
+          position={[0.41, 0.01, 1.86]}
+          rotation={[Math.PI, 0, Math.PI]}
+          scale={[0.5, 0.5, 0.5]}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+        <mesh
+          material-color={color1}
+          onPointerOver={(e) => onHover1(e, true)}
+          onPointerOut={(e) => onHover1(e, false)}
+          castShadow
+          receiveShadow
+          geometry={nodes['2_1'].geometry}
+          material={materials['2.20']}
+          position={[0.41, 0.01, 1.86]}
+          rotation={[Math.PI, 0, Math.PI]}
+          scale={[0.5, 0.5, 0.5]}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+        <mesh
+          onPointerOver={(e) => onHover2(e, true)}
+          onPointerOut={(e) => onHover2(e, false)}
+          onClick={() => {
+            setShowHtml(!showHtml);
+          }}
+          material-color={color2}
+          castShadow
+          receiveShadow
+          geometry={nodes['2_2'].geometry}
+          material={materials['2.19']}
+          position={[0.41, 0.01, 1.86]}
+          rotation={[Math.PI, 0, Math.PI]}
+          scale={[0.5, 0.5, 0.5]}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+        <mesh
+          material-color={color3}
+          onPointerOver={(e) => onHover3(e, true)}
+          onPointerOut={(e) => onHover3(e, false)}
+          castShadow
+          receiveShadow
+          geometry={nodes['2_3'].geometry}
+          material={materials['2.18']}
+          position={[0.41, 0.01, 1.86]}
+          rotation={[Math.PI, 0, Math.PI]}
+          scale={[0.5, 0.5, 0.5]}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+        <mesh
+          material-color={color4}
+          onPointerOver={(e) => onHover4(e, true)}
+          onPointerOut={(e) => onHover4(e, false)}
+          castShadow
+          receiveShadow
+          geometry={nodes['2_4'].geometry}
+          material={materials['2.17']}
+          position={[0.41, 0.01, 1.86]}
+          rotation={[Math.PI, 0, Math.PI]}
+          scale={[0.5, 0.5, 0.5]}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+        <mesh
+          material-color={color5}
+          onPointerOver={(e) => onHover5(e, true)}
+          onPointerOut={(e) => onHover5(e, false)}
+          castShadow
+          receiveShadow
+          geometry={nodes['2_5'].geometry}
+          material={materials['2.16']}
+          position={[0.41, 0.01, 1.86]}
+          rotation={[Math.PI, 0, Math.PI]}
+          scale={[0.5, 0.5, 0.5]}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+        <mesh
+          material-color={color6}
+          onPointerOver={(e) => onHover6(e, true)}
+          onPointerOut={(e) => onHover6(e, false)}
+          castShadow
+          receiveShadow
+          geometry={nodes['2_6'].geometry}
+          material={materials['2.15']}
+          position={[0.41, 0.01, 1.86]}
+          rotation={[Math.PI, 0, Math.PI]}
+          scale={[0.5, 0.5, 0.5]}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+        <mesh
+          material-color={color7}
+          onPointerOver={(e) => onHover7(e, true)}
+          onPointerOut={(e) => onHover7(e, false)}
+          castShadow
+          receiveShadow
+          geometry={nodes['2_7'].geometry}
+          material={materials['2.14']}
+          position={[0.41, 0.01, 1.86]}
+          rotation={[Math.PI, 0, Math.PI]}
+          scale={[0.5, 0.5, 0.5]}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+        <mesh
+          material-color={color8}
+          onPointerOver={(e) => onHover8(e, true)}
+          onPointerOut={(e) => onHover8(e, false)}
+          castShadow
+          receiveShadow
+          geometry={nodes['2_8'].geometry}
+          material={materials['2.13']}
+          position={[0.41, 0.01, 1.86]}
+          rotation={[Math.PI, 0, Math.PI]}
+          scale={[0.5, 0.5, 0.5]}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+        <mesh
+          material-color={color9}
+          onPointerOver={(e) => onHover9(e, true)}
+          onPointerOut={(e) => onHover9(e, false)}
+          castShadow
+          receiveShadow
+          geometry={nodes['2_9'].geometry}
+          material={materials['2.12']}
+          position={[0.41, 0.01, 1.86]}
+          rotation={[Math.PI, 0, Math.PI]}
+          scale={[0.5, 0.5, 0.5]}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+        <mesh
+          material-color={color10}
+          onPointerOver={(e) => onHover10(e, true)}
+          onPointerOut={(e) => onHover10(e, false)}
+          castShadow
+          receiveShadow
+          geometry={nodes['2_10'].geometry}
+          material={materials['2.11']}
+          position={[0.41, 0.01, 1.86]}
+          rotation={[Math.PI, 0, Math.PI]}
+          scale={[0.5, 0.5, 0.5]}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+        <mesh
+          material-color={color11}
+          onPointerOver={(e) => onHover11(e, true)}
+          onPointerOut={(e) => onHover11(e, false)}
+          castShadow
+          receiveShadow
+          geometry={nodes['2_11'].geometry}
+          material={materials['2.10']}
+          position={[0.41, 0.01, 1.86]}
+          rotation={[Math.PI, 0, Math.PI]}
+          scale={[0.5, 0.5, 0.5]}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+        <mesh
+          material-color={color12}
+          onPointerOver={(e) => onHover12(e, true)}
+          onPointerOut={(e) => onHover12(e, false)}
+          castShadow
+          receiveShadow
+          geometry={nodes['2_12'].geometry}
+          material={materials['2.9']}
+          position={[0.41, 0.01, 1.86]}
+          rotation={[Math.PI, 0, Math.PI]}
+          scale={[0.5, 0.5, 0.5]}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+        <mesh
+          material-color={color13}
+          onPointerOver={(e) => onHover13(e, true)}
+          onPointerOut={(e) => onHover13(e, false)}
+          castShadow
+          receiveShadow
+          geometry={nodes['2_13'].geometry}
+          material={materials['2.8']}
+          position={[0.41, 0.01, 1.86]}
+          rotation={[Math.PI, 0, Math.PI]}
+          scale={[0.5, 0.5, 0.5]}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+        <mesh
+          material-color={color14}
+          onPointerOver={(e) => onHover14(e, true)}
+          onPointerOut={(e) => onHover14(e, false)}
+          castShadow
+          receiveShadow
+          geometry={nodes['2_14'].geometry}
+          material={materials['2.7']}
+          position={[0.41, 0.01, 1.86]}
+          rotation={[Math.PI, 0, Math.PI]}
+          scale={[0.5, 0.5, 0.5]}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+        <mesh
+          material-color={color15}
+          onPointerOver={(e) => onHover15(e, true)}
+          onPointerOut={(e) => onHover15(e, false)}
+          castShadow
+          receiveShadow
+          geometry={nodes['2_15'].geometry}
+          material={materials['2.6']}
+          position={[0.41, 0.01, 1.86]}
+          rotation={[Math.PI, 0, Math.PI]}
+          scale={[0.5, 0.5, 0.5]}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+        <mesh
+          material-color={color16}
+          onPointerOver={(e) => onHover16(e, true)}
+          onPointerOut={(e) => onHover16(e, false)}
+          castShadow
+          receiveShadow
+          geometry={nodes['2_16'].geometry}
+          material={materials['2.5']}
+          position={[0.41, 0.01, 1.86]}
+          rotation={[Math.PI, 0, Math.PI]}
+          scale={[0.5, 0.5, 0.5]}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+        <mesh
+          material-color={color17}
+          onPointerOver={(e) => onHover17(e, true)}
+          onPointerOut={(e) => onHover17(e, false)}
+          castShadow
+          receiveShadow
+          geometry={nodes['2_17'].geometry}
+          material={materials['2.4']}
+          position={[0.41, 0.01, 1.86]}
+          rotation={[Math.PI, 0, Math.PI]}
+          scale={[0.5, 0.5, 0.5]}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+        <mesh
+          material-color={color18}
+          onPointerOver={(e) => onHover18(e, true)}
+          onPointerOut={(e) => onHover18(e, false)}
+          castShadow
+          receiveShadow
+          geometry={nodes['2_18'].geometry}
+          material={materials['2.3']}
+          position={[0.41, 0.01, 1.86]}
+          rotation={[Math.PI, 0, Math.PI]}
+          scale={[0.5, 0.5, 0.5]}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+        <mesh
+          material-color={color19}
+          onPointerOver={(e) => onHover19(e, true)}
+          onPointerOut={(e) => onHover19(e, false)}
+          castShadow
+          receiveShadow
+          geometry={nodes['2_19'].geometry}
+          material={materials['2.2']}
+          position={[0.41, 0.01, 1.86]}
+          rotation={[Math.PI, 0, Math.PI]}
+          scale={[0.5, 0.5, 0.5]}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+        <mesh
+          material-color={color20}
+          onPointerOver={(e) => onHover20(e, true)}
+          onPointerOut={(e) => onHover20(e, false)}
+          castShadow
+          receiveShadow
+          geometry={nodes['2_20'].geometry}
+          material={materials['2.1']}
+          position={[0.41, 0.01, 1.86]}
+          rotation={[Math.PI, 0, Math.PI]}
+          scale={[0.5, 0.5, 0.5]}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+        <mesh
+          material-color={color21}
+          onPointerOver={(e) => onHover21(e, true)}
+          onPointerOut={(e) => onHover21(e, false)}
+          castShadow
+          receiveShadow
+          geometry={nodes['2_21'].geometry}
+          material={materials['2']}
+          position={[0.41, 0.01, 1.86]}
+          rotation={[Math.PI, 0, Math.PI]}
+          scale={[0.5, 0.5, 0.5]}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+      </group>
+    </>
   );
 }
 

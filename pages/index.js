@@ -35,6 +35,7 @@ const wrapperMain = css`
   margin: 0;
   display: flex;
   .Controls {
+    position: fixed;
     text-align: center;
     font-family: 'Oswald';
     height: 50px;
@@ -48,10 +49,37 @@ const wrapperMain = css`
   }
   .Textures {
     position: fixed;
-    top: 100px;
+    text-align: center;
+    font-family: 'Oswald';
+    height: 50px;
+    width: 50px;
+    background-color: black;
+    color: white;
+    font-size: 30px;
+    top: 120px;
+    margin-left: 40px;
+    margin-top: 40px;
+    border: 1px solid black;
+  }
+  button {
+    position: fixed;
+    text-align: center;
+    font-family: 'Oswald';
+    height: 50px;
+    width: 50px;
+    background-color: black;
+    color: white;
+    font-size: 30px;
+    top: 190px;
+    margin-left: 40px;
+    margin-top: 40px;
+    border: 1px solid black;
+    cursor: pointer;
+  }
+  select option {
+    font-size: 13pt;
   }
 `;
-
 export const TextureContext = createContext();
 
 export default function Scene() {
@@ -78,12 +106,6 @@ export default function Scene() {
       <div css={canvasWrapper}>
         <Canvas camera={{ position: [500, 500, 500] }}>
           <Suspense fallback={<Loader />}>
-            <spotLight
-              position={[1000, 1500, 1000]}
-              angle={0.5}
-              intensity={1}
-            />
-
             {controls ? (
               <OrbitControls />
             ) : (
@@ -94,7 +116,6 @@ export default function Scene() {
                 rollSpeed={1}
               />
             )}
-
             <TextureContext.Provider value={textureSelector}>
               <MainModel />
             </TextureContext.Provider>
@@ -103,6 +124,7 @@ export default function Scene() {
           </Suspense>
         </Canvas>
       </div>
+
       <Header />
       <select
         className="Textures"
@@ -110,12 +132,15 @@ export default function Scene() {
           setTextureSelector(e.currentTarget.value);
         }}
       >
-        <option value="texture1">1</option>
-        <option value="texture2">2</option>
-        <option value="texture3">3</option>
-        <option value="texture4">4</option>
-        <option value="texture5">5</option>
+        <optgroup>
+          <option value="texture1">1</option>
+          <option value="texture2">2</option>
+          <option value="texture3">3</option>
+          <option value="texture4">4</option>
+          <option value="texture5">5</option>
+        </optgroup>
       </select>
+
       {controls ? (
         <div className="Controls">
           <div>O</div>
@@ -123,6 +148,7 @@ export default function Scene() {
       ) : (
         <div className="Controls">F</div>
       )}
+      <button>M</button>
     </div>
   );
 }
