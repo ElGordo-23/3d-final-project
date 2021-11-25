@@ -16,6 +16,7 @@ import React, {
 } from 'react';
 import Header from '../Components/Header';
 import MainModel from '../Components/MainModel';
+import MainModel5 from '../Components/MainModel5';
 
 function Loader() {
   const { progress } = useProgress();
@@ -61,7 +62,7 @@ const wrapperMain = css`
     margin-top: 40px;
     border: 1px solid black;
   }
-  button {
+  .modelswitch {
     position: fixed;
     text-align: center;
     font-family: 'Oswald';
@@ -86,6 +87,8 @@ export default function Scene() {
   const [textureSelector, setTextureSelector] = useState('texture1');
 
   const [controls, setControls] = useState(true);
+
+  const [switchModel, setSwitchModel] = useState(true);
 
   const keyPress = useCallback(
     (e) => {
@@ -116,9 +119,15 @@ export default function Scene() {
                 rollSpeed={1}
               />
             )}
-            <TextureContext.Provider value={textureSelector}>
-              <MainModel />
-            </TextureContext.Provider>
+            {switchModel ? (
+              <TextureContext.Provider value={textureSelector}>
+                <MainModel />
+              </TextureContext.Provider>
+            ) : (
+              <TextureContext.Provider value={textureSelector}>
+                <MainModel5 />
+              </TextureContext.Provider>
+            )}
 
             <Environment files="studio.hdr" />
           </Suspense>
@@ -148,7 +157,12 @@ export default function Scene() {
       ) : (
         <div className="Controls">F</div>
       )}
-      <button>M</button>
+      <button
+        className="modelswitch"
+        onClick={() => setSwitchModel(!switchModel)}
+      >
+        M
+      </button>
     </div>
   );
 }
