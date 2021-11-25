@@ -17,6 +17,7 @@ export const navStyles = css`
     position: fixed;
     top: 50px;
     text-align: center;
+    cursor: pointer;
   }
   div {
     font-family: 'Oswald', sans-serif;
@@ -29,7 +30,6 @@ export const navStyles = css`
     letter-spacing: 1px;
     position: relative;
     display: inline-block;
-    cursor: pointer;
   }
 `;
 
@@ -39,7 +39,7 @@ const modalBackground = css`
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 80%;
+  opacity: 90%;
 `;
 
 const modalWrapper = css`
@@ -49,7 +49,7 @@ const modalWrapper = css`
   background: #fff;
   color: #000;
   position: relative;
-  top: 150px;
+  top: 100px;
 `;
 
 const modalContent = css`
@@ -57,6 +57,8 @@ const modalContent = css`
   top: 25px;
   padding: 15px;
   height: inherit;
+  font-family: 'Oswald', sans-serif;
+  font-weight: lighter;
   button {
     display: inline-block;
     border: 0.1em solid black;
@@ -134,7 +136,7 @@ export default function Header() {
               }}
               aria-hidden="true"
             >
-              What's going on here?
+              About
             </div>
             <div
               onClick={() => {
@@ -165,7 +167,6 @@ export default function Header() {
         >
           <div css={modalWrapper}>
             <div css={modalContent}>
-              <div>Hola Muchachos</div>
               <br />
               <div style={{ textAlign: 'justify' }}>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -191,13 +192,20 @@ export default function Header() {
         >
           <div css={modalWrapper}>
             <div css={modalContent}>
-              <div>Hola Muchachos</div>
               <br />
               <p style={{ textAlign: 'justify' }}>
                 Default: Click the mouse and rotate the object freely. Use the
-                mouse wheel to zoom. Press <strong>C</strong> to enable/disable
-                FlyControls. When in FlyControls, use WASD to maneuvre, Q and E
-                to roll, and the mouse to look (while pressing the left button).
+                mouse wheel to zoom.
+                <br />
+                <br />
+                Press <strong>C</strong> to enable/disable FlyControls.
+                <br />
+                You can see which mode you're in on the left side (O =
+                OrbitControls, F = FlyControls)
+                <br />
+                <br />
+                When in FlyControls, use WASD to maneuvre, Q and E to roll, and
+                the mouse to look (while pressing the left button).
               </p>
               <br />
               <button onClick={() => setShowControlsModal(!showControlsModal)}>
@@ -217,13 +225,17 @@ export default function Header() {
         >
           <div css={modalWrapper}>
             <div css={modalContent}>
-              <div>Hola Muchachos</div>
               <br />
               <div style={{ textAlign: 'justify' }}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+                This Page displays two projects by{' '}
+                <a href="https://www.cutaneous.work/">Andreas Körner</a>, and
+                was built by Felix Lang.
+                <br />
+                <br />
+                All Artwork ©Andreas Körner.
+                <br />
+                <br />
+                Website ©Felix Lang 2021.
               </div>
               <br />
               <button onClick={() => setShowAboutModal(!showAboutModal)}>
@@ -262,7 +274,6 @@ export default function Header() {
         >
           <div css={modalWrapper}>
             <div css={modalContent}>
-              <div>Hola Muchachos</div>
               <br />
               <RegisterPage />
               <br />
