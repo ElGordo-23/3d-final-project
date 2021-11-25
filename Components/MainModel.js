@@ -1,21 +1,9 @@
-import { css } from '@emotion/react';
 import { Html, useGLTF } from '@react-three/drei';
 import { useLoader } from '@react-three/fiber';
 import React, { useCallback, useContext, useRef, useState } from 'react';
 import { TextureLoader } from 'three';
 import { TextureContext } from '../pages/index';
 import FlyingModal2 from './FlyingModal2';
-import Model2 from './Model2';
-
-const divStyle = css`
-  padding: 20px;
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: bold;
-  height: 100px;
-  width: 100px;
-  border: 2px solid black;
-`;
 
 export default function MainModel(props) {
   const group = useRef();
