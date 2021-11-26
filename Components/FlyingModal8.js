@@ -5,7 +5,7 @@ import Draggable from 'react-draggable';
 import { CgMaximizeAlt, CgMinimize } from 'react-icons/cg';
 import { MdClose } from 'react-icons/md';
 
-export default function FlyingModal2() {
+export default function FlyingModal8() {
   const [divSize, setDivSize] = useState(150);
   const [divSize2, setDivSize2] = useState(75);
 

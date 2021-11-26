@@ -5,7 +5,7 @@ import Draggable from 'react-draggable';
 import { CgMaximizeAlt, CgMinimize } from 'react-icons/cg';
 import { MdClose } from 'react-icons/md';
 
-export default function FlyingModal2() {
+export default function FlyingModal7() {
   const [divSize, setDivSize] = useState(150);
   const [divSize2, setDivSize2] = useState(75);
 
@@ -67,7 +67,7 @@ export default function FlyingModal2() {
             <div css={div2Style}>
               <Image
                 id="image"
-                src="https://res.cloudinary.com/storage3dfiles/image/upload/v1637930923/3D-Material/20200912_Arcades-4_c_i9_0291_rhdag5.jpg"
+                src="https://res.cloudinary.com/storage3dfiles/image/upload/v1637930918/3D-Material/20190223_Pixelated_Fossile_1_litbzu.jpg"
                 draggable={false}
                 layout="fill"
               />
