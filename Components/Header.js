@@ -169,10 +169,19 @@ export default function Header() {
             <div css={modalContent}>
               <br />
               <div style={{ textAlign: 'justify' }}>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat.
+                The Model you see acts as the main menu for the page content.
+                When you hover the mouse over the model, you will see the
+                currently selected layer highlighted in red. Most of those
+                layers are clickable and will promt a little window that shows
+                more information related to the project. You can expand and drag
+                the little windows around the scene. Zoom out until the main
+                model disappears in order to have a clear view. On the left,
+                change the texture of the main model by selecting one of the
+                numbers. Click on <strong>M</strong> to change the model.
+                <br />
+                <br />
+                For performance reasons, it can be helpful to refresh the page
+                every now and then.
               </div>
               <br />
               <button onClick={() => setShowInstrModal(!showInstrModal)}>
@@ -195,7 +204,7 @@ export default function Header() {
               <br />
               <p style={{ textAlign: 'justify' }}>
                 Default: Click the mouse and rotate the object freely. Use the
-                mouse wheel to zoom.
+                mouse wheel to zoom. (OrbitControls)
                 <br />
                 <br />
                 Press <strong>C</strong> to enable/disable FlyControls.
@@ -206,6 +215,9 @@ export default function Header() {
                 <br />
                 When in FlyControls, use WASD to maneuvre, Q and E to roll, and
                 the mouse to look (while pressing the left button).
+                <br />
+                <br />
+                Click on <strong>M</strong> to change the model.
               </p>
               <br />
               <button onClick={() => setShowControlsModal(!showControlsModal)}>

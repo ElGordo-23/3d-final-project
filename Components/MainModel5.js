@@ -1,14 +1,26 @@
-import { useGLTF } from '@react-three/drei';
+import { Html, useGLTF } from '@react-three/drei';
 import { useLoader } from '@react-three/fiber';
 import React, { useCallback, useContext, useRef, useState } from 'react';
 import { TextureLoader } from 'three';
 import { TextureContext } from '../pages';
+import FlyingModal10 from './FlyingModal10';
+import FlyingModal11 from './FlyingModal11';
+import FlyingModal12 from './FlyingModal12';
+import FlyingModal8 from './FlyingModal8';
+import FlyingModal9 from './FlyingModal9';
 
 export default function MainModel5(props) {
   const group = useRef();
   const { nodes, materials } = useGLTF('/murex-reduced.gltf');
   const texture = useContext(TextureContext);
   const colorMap = useLoader(TextureLoader, `/textures/${texture}.jpg`);
+
+  const [showHtml, setShowHtml] = useState(false);
+  const [showHtml1, setShowHtml1] = useState(false);
+  const [showHtml2, setShowHtml2] = useState(false);
+  const [showHtml3, setShowHtml3] = useState(false);
+  const [showHtml4, setShowHtml4] = useState(false);
+  const [showHtml5, setShowHtml5] = useState(false);
 
   const [isHovered, setIsHovered] = useState(false);
   const [isHovered1, setIsHovered1] = useState(false);
@@ -96,98 +108,141 @@ export default function MainModel5(props) {
   );
 
   return (
-    <group
-      ref={group}
-      {...props}
-      dispose={null}
-      onClick={(e) => {
-        e.stopPropagation();
-      }}
-    >
-      <mesh
-        geometry={nodes.murex8.geometry}
-        material={materials.murex8}
-        material-color={color}
-        onPointerOver={(e) => onHover(e, true)}
-        onPointerOut={(e) => onHover(e, false)}
-        // onClick={() => {
-        //   setShowHtml1(!showHtml1);
-        // }}
+    <>
+      {showHtml ? (
+        <Html>
+          <FlyingModal8 />
+        </Html>
+      ) : null}
+      {showHtml1 ? (
+        <Html>
+          <FlyingModal9 />
+        </Html>
+      ) : null}
+      {showHtml2 ? (
+        <Html>
+          <FlyingModal10 />
+        </Html>
+      ) : null}
+      {showHtml3 ? (
+        <Html>
+          <FlyingModal11 />
+        </Html>
+      ) : null}
+      {showHtml4 ? (
+        <Html>
+          <FlyingModal12 />
+        </Html>
+      ) : null}
+
+      <group
+        ref={group}
+        {...props}
+        dispose={null}
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
       >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
-      <mesh
-        geometry={nodes.murex9.geometry}
-        material={materials.murex9}
-        material-color={color1}
-        onPointerOver={(e) => onHover1(e, true)}
-        onPointerOut={(e) => onHover1(e, false)}
-      >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
-      <mesh
-        geometry={nodes.murex7.geometry}
-        material={materials.murex7}
-        material-color={color2}
-        onPointerOver={(e) => onHover2(e, true)}
-        onPointerOut={(e) => onHover2(e, false)}
-      >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
-      <mesh
-        geometry={nodes.murex6.geometry}
-        material={materials.murex6}
-        material-color={color3}
-        onPointerOver={(e) => onHover3(e, true)}
-        onPointerOut={(e) => onHover3(e, false)}
-      >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
-      <mesh
-        geometry={nodes.murex4.geometry}
-        material={materials.murex4}
-        material-color={color4}
-        onPointerOver={(e) => onHover4(e, true)}
-        onPointerOut={(e) => onHover4(e, false)}
-      >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
-      <mesh
-        geometry={nodes.murex5.geometry}
-        material={materials.murex5}
-        material-color={color5}
-        onPointerOver={(e) => onHover5(e, true)}
-        onPointerOut={(e) => onHover5(e, false)}
-      >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
-      <mesh
-        geometry={nodes.murex3.geometry}
-        material={materials.murex3}
-        material-color={color6}
-        onPointerOver={(e) => onHover6(e, true)}
-        onPointerOut={(e) => onHover6(e, false)}
-      >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
-      <mesh
-        geometry={nodes.murex1.geometry}
-        material={materials.murex1}
-        material-color={color7}
-        onPointerOver={(e) => onHover7(e, true)}
-        onPointerOut={(e) => onHover7(e, false)}
-      />
-      <mesh
-        geometry={nodes.murex2.geometry}
-        material={materials.murex2}
-        material-color={color8}
-        onPointerOver={(e) => onHover8(e, true)}
-        onPointerOut={(e) => onHover8(e, false)}
-      >
-        <meshStandardMaterial map={colorMap} />
-      </mesh>
-      <mesh geometry={nodes.hair.geometry} material={materials.hair} />
-    </group>
+        <mesh
+          geometry={nodes.murex8.geometry}
+          material={materials.murex8}
+          material-color={color}
+          onPointerOver={(e) => onHover(e, true)}
+          onPointerOut={(e) => onHover(e, false)}
+          onClick={() => {
+            setShowHtml(!showHtml);
+          }}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+        <mesh
+          geometry={nodes.murex9.geometry}
+          material={materials.murex9}
+          material-color={color1}
+          onPointerOver={(e) => onHover1(e, true)}
+          onPointerOut={(e) => onHover1(e, false)}
+          onClick={() => {
+            setShowHtml1(!showHtml1);
+          }}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+        <mesh
+          geometry={nodes.murex7.geometry}
+          material={materials.murex7}
+          material-color={color2}
+          onPointerOver={(e) => onHover2(e, true)}
+          onPointerOut={(e) => onHover2(e, false)}
+          onClick={() => {
+            setShowHtml2(!showHtml2);
+          }}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+        <mesh
+          geometry={nodes.murex6.geometry}
+          material={materials.murex6}
+          material-color={color3}
+          onPointerOver={(e) => onHover3(e, true)}
+          onPointerOut={(e) => onHover3(e, false)}
+          onClick={() => {
+            setShowHtml3(!showHtml3);
+          }}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+        <mesh
+          geometry={nodes.murex4.geometry}
+          material={materials.murex4}
+          material-color={color4}
+          onPointerOver={(e) => onHover4(e, true)}
+          onPointerOut={(e) => onHover4(e, false)}
+          onClick={() => {
+            setShowHtml4(!showHtml4);
+          }}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+        <mesh
+          geometry={nodes.murex5.geometry}
+          material={materials.murex5}
+          material-color={color5}
+          onPointerOver={(e) => onHover5(e, true)}
+          onPointerOut={(e) => onHover5(e, false)}
+          onClick={() => {
+            setShowHtml5(!showHtml5);
+          }}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+        <mesh
+          geometry={nodes.murex3.geometry}
+          material={materials.murex3}
+          material-color={color6}
+          onPointerOver={(e) => onHover6(e, true)}
+          onPointerOut={(e) => onHover6(e, false)}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+        <mesh
+          geometry={nodes.murex1.geometry}
+          material={materials.murex1}
+          material-color={color7}
+          onPointerOver={(e) => onHover7(e, true)}
+          onPointerOut={(e) => onHover7(e, false)}
+        />
+        <mesh
+          geometry={nodes.murex2.geometry}
+          material={materials.murex2}
+          material-color={color8}
+          onPointerOver={(e) => onHover8(e, true)}
+          onPointerOut={(e) => onHover8(e, false)}
+        >
+          <meshStandardMaterial map={colorMap} />
+        </mesh>
+        <mesh geometry={nodes.hair.geometry} material={materials.hair} />
+      </group>
+    </>
   );
 }
 

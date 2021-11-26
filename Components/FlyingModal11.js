@@ -67,7 +67,7 @@ export default function FlyingModal11() {
             <div css={div2Style}>
               <Image
                 id="image"
-                src="https://res.cloudinary.com/storage3dfiles/image/upload/v1637930923/3D-Material/20200912_Arcades-4_c_i9_0291_rhdag5.jpg"
+                src="https://res.cloudinary.com/storage3dfiles/image/upload/v1637930924/3D-Material/20201117_shell-2layers_rotating-animation0026_u9x98o.jpg"
                 draggable={false}
                 layout="fill"
               />

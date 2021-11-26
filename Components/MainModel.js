@@ -3,7 +3,13 @@ import { useLoader } from '@react-three/fiber';
 import React, { useCallback, useContext, useRef, useState } from 'react';
 import { TextureLoader } from 'three';
 import { TextureContext } from '../pages/index';
+import FlyingModal1 from './FlyingModal1';
 import FlyingModal2 from './FlyingModal2';
+import FlyingModal3 from './FlyingModal3';
+import FlyingModal4 from './FlyingModal4';
+import FlyingModal5 from './FlyingModal5';
+import FlyingModal6 from './FlyingModal6';
+import FlyingModal7 from './FlyingModal7';
 
 export default function MainModel(props) {
   const group = useRef();
@@ -15,6 +21,11 @@ export default function MainModel(props) {
 
   const [showHtml, setShowHtml] = useState(false);
   const [showHtml1, setShowHtml1] = useState(false);
+  const [showHtml2, setShowHtml2] = useState(false);
+  const [showHtml3, setShowHtml3] = useState(false);
+  const [showHtml4, setShowHtml4] = useState(false);
+  const [showHtml5, setShowHtml5] = useState(false);
+  const [showHtml6, setShowHtml6] = useState(false);
 
   const [isHovered, setIsHovered] = useState(false);
   const [isHovered1, setIsHovered1] = useState(false);
@@ -223,12 +234,37 @@ export default function MainModel(props) {
     <>
       {showHtml ? (
         <Html>
-          <FlyingModal2 />
+          <FlyingModal1 />
         </Html>
       ) : null}
       {showHtml1 ? (
         <Html>
           <FlyingModal2 />
+        </Html>
+      ) : null}
+      {showHtml2 ? (
+        <Html>
+          <FlyingModal3 />
+        </Html>
+      ) : null}
+      {showHtml3 ? (
+        <Html>
+          <FlyingModal4 />
+        </Html>
+      ) : null}
+      {showHtml4 ? (
+        <Html>
+          <FlyingModal5 />
+        </Html>
+      ) : null}
+      {showHtml5 ? (
+        <Html>
+          <FlyingModal6 />
+        </Html>
+      ) : null}
+      {showHtml6 ? (
+        <Html>
+          <FlyingModal7 />
         </Html>
       ) : null}
 
@@ -268,6 +304,9 @@ export default function MainModel(props) {
           position={[0.41, 0.01, 1.86]}
           rotation={[Math.PI, 0, Math.PI]}
           scale={[0.5, 0.5, 0.5]}
+          onClick={() => {
+            setShowHtml2(!showHtml2);
+          }}
         >
           <meshStandardMaterial map={colorMap} />
         </mesh>
@@ -313,6 +352,9 @@ export default function MainModel(props) {
           position={[0.41, 0.01, 1.86]}
           rotation={[Math.PI, 0, Math.PI]}
           scale={[0.5, 0.5, 0.5]}
+          onClick={() => {
+            setShowHtml3(!showHtml3);
+          }}
         >
           <meshStandardMaterial map={colorMap} />
         </mesh>
@@ -341,6 +383,9 @@ export default function MainModel(props) {
           position={[0.41, 0.01, 1.86]}
           rotation={[Math.PI, 0, Math.PI]}
           scale={[0.5, 0.5, 0.5]}
+          onClick={() => {
+            setShowHtml4(!showHtml4);
+          }}
         >
           <meshStandardMaterial map={colorMap} />
         </mesh>
@@ -355,6 +400,9 @@ export default function MainModel(props) {
           position={[0.41, 0.01, 1.86]}
           rotation={[Math.PI, 0, Math.PI]}
           scale={[0.5, 0.5, 0.5]}
+          onClick={() => {
+            setShowHtml5(!showHtml5);
+          }}
         >
           <meshStandardMaterial map={colorMap} />
         </mesh>
@@ -369,6 +417,9 @@ export default function MainModel(props) {
           position={[0.41, 0.01, 1.86]}
           rotation={[Math.PI, 0, Math.PI]}
           scale={[0.5, 0.5, 0.5]}
+          onClick={() => {
+            setShowHtml6(!showHtml6);
+          }}
         >
           <meshStandardMaterial map={colorMap} />
         </mesh>
