@@ -2,7 +2,7 @@ import { Html, useGLTF } from '@react-three/drei';
 import { useLoader } from '@react-three/fiber';
 import React, { useCallback, useContext, useRef, useState } from 'react';
 import { TextureLoader } from 'three';
-import { TextureContext } from '../pages';
+import { textureContext } from '../pages';
 import FlyingModal10 from './FlyingModal10';
 import FlyingModal11 from './FlyingModal11';
 import FlyingModal12 from './FlyingModal12';
@@ -12,7 +12,7 @@ import FlyingModal9 from './FlyingModal9';
 export default function MainModel5(props) {
   const group = useRef();
   const { nodes, materials } = useGLTF('/murex-reduced.gltf');
-  const texture = useContext(TextureContext);
+  const texture = useContext(textureContext);
   const colorMap = useLoader(TextureLoader, `/textures/${texture}.jpg`);
 
   const [showHtml, setShowHtml] = useState(false);

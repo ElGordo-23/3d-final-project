@@ -81,7 +81,7 @@ const wrapperMain = css`
     font-size: 13pt;
   }
 `;
-export const TextureContext = createContext();
+export const textureContext = createContext();
 
 export default function Scene() {
   const [textureSelector, setTextureSelector] = useState('texture1');
@@ -120,13 +120,13 @@ export default function Scene() {
               />
             )}
             {switchModel ? (
-              <TextureContext.Provider value={textureSelector}>
+              <textureContext.Provider value={textureSelector}>
                 <MainModel />
-              </TextureContext.Provider>
+              </textureContext.Provider>
             ) : (
-              <TextureContext.Provider value={textureSelector}>
+              <textureContext.Provider value={textureSelector}>
                 <MainModel5 />
-              </TextureContext.Provider>
+              </textureContext.Provider>
             )}
 
             <Environment files="studio.hdr" />

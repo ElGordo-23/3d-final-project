@@ -2,7 +2,7 @@ import { Html, useGLTF } from '@react-three/drei';
 import { useLoader } from '@react-three/fiber';
 import React, { useCallback, useContext, useRef, useState } from 'react';
 import { TextureLoader } from 'three';
-import { TextureContext } from '../pages/index';
+import { textureContext } from '../pages/index';
 import FlyingModal1 from './FlyingModal1';
 import FlyingModal2 from './FlyingModal2';
 import FlyingModal3 from './FlyingModal3';
@@ -14,7 +14,7 @@ import FlyingModal7 from './FlyingModal7';
 export default function MainModel(props) {
   const group = useRef();
 
-  const texture = useContext(TextureContext);
+  const texture = useContext(textureContext);
 
   const { nodes, materials } = useGLTF('/1-baked.gltf');
   const colorMap = useLoader(TextureLoader, `/textures/${texture}.jpg`);
