@@ -72,9 +72,7 @@ export default function FlyingModal5() {
                 layout="fill"
               />
             </div>
-            <div css={div3Style}>
-              <p>TEXTEXTEXTEXT</p>
-            </div>
+            <div css={div3Style} />
           </div>
         </Draggable>
       ) : null}{' '}

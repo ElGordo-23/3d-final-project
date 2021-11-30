@@ -8,12 +8,12 @@ import { MdClose } from 'react-icons/md';
 export default function FlyingModal8() {
   const [divSize, setDivSize] = useState(150);
   const [divSize2, setDivSize2] = useState(75);
+  const [showText, setShowText] = useState(false);
 
   const divStyle = css`
+    @import url('https://fonts.googleapis.com/css?family=Oswald:500');
     padding: 5px;
     text-align: center;
-    text-transform: uppercase;
-    font-weight: bold;
     height: ${divSize}px;
     width: ${divSize}px;
     border: 2px solid black;
@@ -32,8 +32,11 @@ export default function FlyingModal8() {
   `;
 
   const div3Style = css`
-    height: 30px;
-    width: 150px;
+    height: 100px;
+    width: 380px;
+    font-family: 'Oswald';
+
+    font-weight: lighter;
   `;
 
   const [showFlyingModal, setShowFlyingModal] = useState(true);
@@ -49,6 +52,7 @@ export default function FlyingModal8() {
                 onClick={() => {
                   setDivSize(150);
                   setDivSize2(75);
+                  setShowText(false);
                 }}
               />
               <CgMaximizeAlt
@@ -56,6 +60,7 @@ export default function FlyingModal8() {
                 onClick={() => {
                   setDivSize(400);
                   setDivSize2(300);
+                  setShowText(true);
                 }}
               />
 
@@ -73,7 +78,13 @@ export default function FlyingModal8() {
               />
             </div>
             <div css={div3Style}>
-              <p>TEXTEXTEXTEXT</p>
+              {showText ? (
+                <div css={div3Style}>
+                  Cutaneous Tectonics, 2020 <br />A set of generative shells
+                  that negotiate between a smooth and curvilinear ‘inside’ and a
+                  coarse and intricate ‘outside.’{' '}
+                </div>
+              ) : null}
             </div>
           </div>
         </Draggable>
